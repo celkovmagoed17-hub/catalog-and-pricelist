@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalog & Price list</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #ffffff;
+      color: #000000;
+    }
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 1px solid #eaeaea;
+    }
+    header h1 {
+      font-size: 36px;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    header p {
+      font-size: 16px;
+      color: #444;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .product {
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .product img {
+      width: 100%;
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .options {
+      margin: 15px 0;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #000;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+    .note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 40px 20px;
+      background: #f9f9f9;
+      text-align: center;
+      border-top: 1px solid #eaeaea;
+    }
+    footer h2 {
+      margin-bottom: 10px;
+    }
+    footer p {
+      color: #444;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>iPhone Z</h1>
+  <p>Harga murah. Namun kualitas dan produk tidak murahan. Confirmation via WhatsApp Admin.</p>
+</header>
+
+<div class="container">
+  <div class="products">
+
+    <!-- Product -->
+    <div class="product">
+      <img src="https://macstore.id/wp-content/uploads/2021/12/iphone-13-select-2021.jpeg" alt="iPhone 15 Pro">
+      <h3>iPhone 15 Pro</h3>
+      <div class="price">IDR 22,500,000</div>
+      <div class="options">
+        <select>
+          <option>Choose Color</option>
+          <option>Black Titanium</option>
+          <option>White Titanium</option>
+          <option></option>
+        </select>
+        <select>
+          <option>Choose Storage</option>
+          <option>256 GB</option>
+          <option>512 GB</option>
+          <option>1 TB</option>
+        </select>
+      </div>
+      <button onclick="contactWA('iPhone 15 Pro')">Order via WhatsApp</button>
+      <div class="note">*Payment hanya melalui WhatsApp</div>
+    </div>
+
+    <!-- Product (Out of Stock) -->
+    <div class="product">
+      <img src="https://macstore.id/wp-content/uploads/2021/12/iphone-13-select-2021.jpeg" alt="iPhone 14">
+      <h3>iPhone 14</h3>
+      <div class="price">IDR 15,000,000</div>
+      <div class="options">
+        <select disabled>
+          <option>Out of Stock</option>
+        </select>
+        <select disabled>
+          <option>Out of Stock</option>
+        </select>
+      </div>
+      <button disabled>Out of Stock</button>
+      <div class="note">*Saat ini barang tidak tersedia</div>
+    </div>
+
+    <!-- Product -->
+    <div class="product">
+      <img src="https://macstore.id/wp-content/uploads/2021/12/iphone-13-select-2021.jpeg" alt="iPhone 13">
+      <h3>iPhone 13</h3>
+      <div class="price">IDR 12,500,000</div>
+      <div class="options">
+        <select>
+          <option>Choose Color</option>
+          <option>Midnight</option>
+          <option>Starlight</option>
+          <option>Blue</option>
+        </select>
+        <select>
+          <option>Choose Storage</option>
+          <option>128 GB</option>
+          <option>256 GB</option>
+        </select>
+      </div>
+      <button onclick="contactWA('iPhone 13')">Order via WhatsApp</button>
+      <div class="note">*Payment hanya melalui WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <h2>Contact Us</h2>
+  <p>WhatsApp Admin: +62 8788 4250 163</p>
+  <p>Email: Owner (magoedcelkov1@gmail.com)</p>
+  <p>All orders are processed after confirmation via WhatsApp.</p>
+</footer>
+
+<script>
+  function contactWA(product) {
+    const phone = '6287884250163'; // replace with admin WhatsApp number
+    const message = encodeURIComponent(`Hello Admin, I would like to order ${product}. Please confirm availability and payment details.`);
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  }
+</script>
+
+</body>
+</html>
